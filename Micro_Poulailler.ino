@@ -14,7 +14,7 @@
  *  adresse LCD EEPROM adr 0 pas encore operationel
  
  * de 05h00 à 07h00 lux ouvre
- * de 07h00 à 17h00 ouvert
+ * de 08h00 à 17h00 ouvert
  * de 17h00 à 21h00 lux ferme
  * de 21h00 à 05h00 fermée
  
@@ -307,8 +307,8 @@ void ActionWakeup(){
 }
 //---------------------------------------------------------------------------
 void GestionPorte(){
-	unsigned int H7			= 25200; // 07H00 28800; // 08h00
-	unsigned int H17 		= 61200; // 17H00 64800; // 18h00
+	unsigned int H8			= 28800; // 08h00
+	unsigned int H17 		= 61200; // 17H00
 	long Heureactuelle 	= hour()*60;// calcul en 4 lignes sinon bug!
 	Heureactuelle += minute();
 	Heureactuelle  = Heureactuelle*60;
@@ -319,12 +319,12 @@ void GestionPorte(){
 			Moteur(false,config.N_Fermeture,true,false);//fermeture
 		}
 	}
-	else if(Heureactuelle >= H7 && Heureactuelle < H17){ // Jour
+	else if(Heureactuelle >= H8 && Heureactuelle < H17){ // Jour
 		if(!config.PorteOuverte){ 						// si porte fermée
 			Moteur(true,config.N_Ouverture,true,false);//ouverture
 		}
 	}
-	else if(Heureactuelle >= config.HFinNuit && Heureactuelle < H7){ // interval auto matin
+	else if(Heureactuelle >= config.HFinNuit && Heureactuelle < H8){ // interval auto matin
 		if(config.keyLight){
 			if(mesureLum() > (config.seuilJour)){
 				if(!config.PorteOuverte){ 						// si porte fermée
