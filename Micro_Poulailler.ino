@@ -18,6 +18,14 @@
  * de 17h00 à 21h00 lux ferme
  * de 21h00 à 05h00 fermée
  
+ todo
+ ajouter #ifdef gestion version Yves ProMini et Guillaume Mini
+ #ifdef __AVR__ // mini
+ #ifdef ARDUINO_AVR_PRO // Pro Mini
+ pas testé
+ 
+ 20782 66%, 740 36%
+ 
  V2-1 29/04/2018, installé Yves 12/05/2018, Guillaume 27/08/2018
  Ajout fonction Manu/Auto
  
@@ -62,8 +70,11 @@
 #define OpFermeture					12		// Sortie Commande Fermeture
 #define OpRlMotEnable				13		// Sortie Relais Moteur Enable 0=Stby
 
-#define Lcd_Adr							0x3F	// carte Guillaume
-// #define Lcd_Adr							0x27	// carte Yves
+// #ifdef __AVR__
+	#define Lcd_Adr							0x3F	// carte Guillaume
+// #elif ARDUINO_AVR_PRO
+	// #define Lcd_Adr							0x27	// carte Yves
+// #endif
 
 
 String ver =  "2-1 29/04/2018";
