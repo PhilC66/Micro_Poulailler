@@ -71,9 +71,9 @@
 #define OpRlMotEnable				13		// Sortie Relais Moteur Enable 0=Stby
 
 // #ifdef __AVR__
-	#define Lcd_Adr							0x3F	// carte Guillaume
+	// #define Lcd_Adr							0x3F	// carte Guillaume
 // #elif ARDUINO_AVR_PRO
-	// #define Lcd_Adr							0x27	// carte Yves
+	#define Lcd_Adr							0x27	// carte Yves
 // #endif
 
 
