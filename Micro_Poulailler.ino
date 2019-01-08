@@ -24,7 +24,7 @@
  #ifdef ARDUINO_AVR_PRO // Pro Mini
  pas testé
  
- 20782 66%, 740 36%
+ 20582 66%, 740 36%
  
  V2-1 29/04/2018, installé Yves 12/05/2018, Guillaume 27/08/2018
  Ajout fonction Manu/Auto
