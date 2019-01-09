@@ -72,11 +72,12 @@
 #define OpFermeture					12		// Sortie Commande Fermeture
 #define OpRlMotEnable				13		// Sortie Relais Moteur Enable 0=Stby
 
-// #ifdef ARDUINO_AVR_PRO
-	// #define Lcd_Adr							0x3F	// carte Guillaume
-// #elif __AVR__
+/* a valider */
+#ifdef ARDUINO_AVR_PRO
+	#define Lcd_Adr							0x3F	// carte Guillaume
+#elif ARDUINO_AVR_MINI
 	#define Lcd_Adr							0x27	// carte Yves
-// #endif
+#endif
 
 
 String ver =  "2-2 08/01/2019";
