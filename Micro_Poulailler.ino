@@ -19,7 +19,7 @@
  * de 21h00 à 05h00 fermée
  
  todo
- ajouter #ifdef gestion version Yves ProMini et Guillaume Mini
+ ajouter #ifdef gestion version Yves Mini  et Guillaume ProMini
  #ifdef __AVR__ // mini
  #ifdef ARDUINO_AVR_PRO // Pro Mini
  pas testé
@@ -72,9 +72,9 @@
 #define OpFermeture					12		// Sortie Commande Fermeture
 #define OpRlMotEnable				13		// Sortie Relais Moteur Enable 0=Stby
 
-// #ifdef __AVR__
+// #ifdef ARDUINO_AVR_PRO
 	// #define Lcd_Adr							0x3F	// carte Guillaume
-// #elif ARDUINO_AVR_PRO
+// #elif __AVR__
 	#define Lcd_Adr							0x27	// carte Yves
 // #endif
 
