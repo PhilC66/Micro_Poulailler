@@ -25,6 +25,8 @@
  pas testé
  
  20582 66%, 740 36%
+ V2-2 08/01/2019, installé Yves 09/01/2019
+ Heure matin H7 devient H8 08H00 ouverture obligatoire
  
  V2-1 29/04/2018, installé Yves 12/05/2018, Guillaume 27/08/2018
  Ajout fonction Manu/Auto
@@ -77,7 +79,7 @@
 // #endif
 
 
-String ver =  "2-1 29/04/2018";
+String ver =  "2-2 08/01/2019";
 boolean 	StartTimerAffichage = false;	// lancement timer pour time out
 boolean 	timeOut = false;							// si false sortir d'un menu resté ouvert apres xx s
 boolean 	flagOnceDay	= false;					// true a premiere ouverture, false X heure avant nuit, evite fermeture en cours de journée si sombre
