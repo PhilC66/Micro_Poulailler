@@ -19,12 +19,16 @@
  * de 21h00 à 05h00 fermée
  
  todo
+  
+ IDE Arduino 1.8.16, AVR 1.8.4
+ 21228 69%, 755 36%
+ V2-3 07/03/2022 installé Guillaume
+ correction bug timeout moteur et timeout 90s
  ajouter #ifdef gestion version Yves Mini  et Guillaume ProMini
  #ifdef __AVR__ // mini
  #ifdef ARDUINO_AVR_PRO // Pro Mini
- pas testé
- 
- 20582 66%, 740 36%
+ testé OK
+
  V2-2 08/01/2019, installé Yves 09/01/2019
  Heure matin H7 devient H8 08H00 ouverture obligatoire
  
@@ -72,15 +76,14 @@
 #define OpFermeture					12		// Sortie Commande Fermeture
 #define OpRlMotEnable				13		// Sortie Relais Moteur Enable 0=Stby
 
-/* a valider */
 #ifdef ARDUINO_AVR_PRO
-	#define Lcd_Adr							0x3F	// carte Guillaume
+	#define Lcd_Adr							0x3F	// 63 : carte Guillaume
 #elif ARDUINO_AVR_MINI
-	#define Lcd_Adr							0x27	// carte Yves
+	#define Lcd_Adr							0x27	// 39 : carte Yves
 #endif
 
 
-String ver =  "2-2 08/01/2019";
+String ver =  "2-3 07/03/2022";
 boolean 	StartTimerAffichage = false;	// lancement timer pour time out
 boolean 	timeOut = false;							// si false sortir d'un menu resté ouvert apres xx s
 boolean 	flagOnceDay	= false;					// true a premiere ouverture, false X heure avant nuit, evite fermeture en cours de journée si sombre
@@ -364,7 +367,7 @@ void Moteur(boolean S, int nbr, boolean record, boolean anim){
 			anim		= 1 effectue une animation sur le LCD		
 			tmax		= timeout en cas de blocage moteur ou perte comptage
 	*/
-	uint32_t tmax  = 180000;	//	3mn
+	uint32_t tmax  = 90000;	//	1.5mn
 	uint32_t debut = millis();
 	byte     coup  = 0;
 	boolean	 last  = 1;
@@ -394,7 +397,7 @@ void Moteur(boolean S, int nbr, boolean record, boolean anim){
 		else{
 			last = 1;
 		}
-	}while((coup < nbr) || (millis() - debut > tmax));
+	}while((coup < nbr) && ((millis() - debut) < tmax));
 		
 	digitalWrite(OpMotorEnable, LOW);	// arret moteur	
 	
@@ -1704,6 +1707,7 @@ void PrintEEPROM(){
 	Serial.print(F("N_Ouverture  = ")),Serial.println(config.N_Ouverture);
 	Serial.print(F("PorteOuverte  = ")),Serial.println(config.PorteOuverte);
 	Serial.print(F("Auto  = ")),Serial.println(config.Auto);
+	Serial.print(F("addr lcd = ")),Serial.println(Lcd_Adr);
 	Serial.flush();
 }
 //---------------------------------------------------------------------------
@@ -1753,7 +1757,7 @@ byte batpct(){// retourne etatbatt en %
 	V_Batterie /=10;
 	
 	delay(100);
-	
+	Serial.print("V Batt :"),Serial.println(V_Batterie);
 	for(int i = 0; i < 12; i++){
 		if(V_Batterie > echelbatt[i]){
 			EtatBat = pctbatt[i];
