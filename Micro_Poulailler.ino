@@ -22,7 +22,7 @@
   
  IDE Arduino 1.8.16, AVR 1.8.4
  21228 69%, 755 36%
- V2-3 07/03/2022 installé Guillaume
+ V2-3 07/03/2022 installé Guillaume, installé Yves 18/07/2022
  correction bug timeout moteur et timeout 90s
  ajouter #ifdef gestion version Yves Mini  et Guillaume ProMini
  #ifdef __AVR__ // mini
