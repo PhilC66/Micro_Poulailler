@@ -79,7 +79,7 @@
 #ifdef ARDUINO_AVR_PRO
 	#define Lcd_Adr							0x3F	// 63 : carte Guillaume
 #elif ARDUINO_AVR_MINI
-	#define Lcd_Adr							0x27	// 39 : carte Yves
+	#define Lcd_Adr							0x27	// 39 : carte Yves, et pour memoire connecteur coté Batterie Male!
 #endif
 
 
