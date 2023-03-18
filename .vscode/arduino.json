@@ -1,0 +1,5 @@
+{
+    "board": "arduino:avr:pro",
+    "sketch": "Micro_Poulailler.ino",
+    "configuration": "cpu=16MHzatmega328"
+}

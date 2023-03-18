@@ -56,7 +56,7 @@
  21378 74%, 704 34%
  
  */
-
+#include <Arduino.h>
 #include <DS3232RTC.h>    			//http://github.com/JChristensen/DS3232RTC
 #include <EEPROM.h>							// variable en EEPROM
 #include <EEPROMAnything.h>			// variable en EEPROM
