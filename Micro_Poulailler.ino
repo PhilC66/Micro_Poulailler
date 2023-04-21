@@ -63,17 +63,17 @@
 #include <avr/sleep.h>
 #include <LiquidCrystal_I2C.h>
 
-#define alarmInput 					2			// Alarme RTC 									Interrupt
-#define IpBp0								3			// Entrée Bp0 (principal/valid) Interrupt
+#define alarmInput 				2			// Alarme RTC 									Interrupt
+#define IpBp0					3			// Entrée Bp0 (principal/valid) Interrupt
 #define OpMesureLight				4			// Sortie Alimentation pont LDR
-#define OpLEDRouge				 	5			// Sortie Led rouge Alarme
-#define IpTour							6			// Entrée comptage nombre de 1/2 tour poulie
-#define OpHall							7			// Sortie alimentation capteur Hall 0=AlimON
-#define IpBp1								8			// Entrée Bp1					 					Pin change
-#define IpBp2								9			// Entrée Bp2										Pin change
+#define OpLEDRouge			 	5			// Sortie Led rouge Alarme
+#define IpTour					6			// Entrée comptage nombre de 1/2 tour poulie
+#define OpHall					7			// Sortie alimentation capteur Hall 0=AlimON
+#define IpBp1					8			// Entrée Bp1					 					Pin change
+#define IpBp2					9			// Entrée Bp2										Pin change
 #define OpMotorEnable				10		// Sortie Commande Moteur
-#define OpOuverture					11		// Sortie Commande Ouverture
-#define OpFermeture					12		// Sortie Commande Fermeture
+#define OpOuverture				11		// Sortie Commande Ouverture
+#define OpFermeture				12		// Sortie Commande Fermeture
 #define OpRlMotEnable				13		// Sortie Relais Moteur Enable 0=Stby
 
 #ifdef ARDUINO_AVR_PRO
